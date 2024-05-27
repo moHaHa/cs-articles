@@ -1,164 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computer Components Quiz</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        h1, h2, h3 {
-            text-align: center;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Computer Components Quiz</title>
+<style>
+    /* Styles for better presentation */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    h1 {
+        text-align: center;
+    }
+    .question {
+        margin-bottom: 20px;
+    }
+</style>
 </head>
 <body>
-    <h1>Computer Components Quiz</h1>
 
-    <h2>Computer Components:</h2>
+<h1>Computer Components Quiz</h1>
 
-    <table>
-        <tr>
-            <th colspan="2">COMPUTER</th>
-        </tr>
-        <tr>
-            <td>- I/O</td>
-            <td>- Main Memory</td>
-        </tr>
-        <tr>
-            <td>- System Bus</td>
-            <td>- CPU</td>
-        </tr>
-    </table>
+<div class="question">
+    <p>1. What are the four main components of a computer system?</p>
+    <input type="text" id="q1_answer" placeholder="Your Answer">
+</div>
 
-    <table>
-        <tr>
-            <th>CPU</th>
-        </tr>
-        <tr>
-            <td>- Registers</td>
-        </tr>
-        <tr>
-            <td>- ALU (Arithmetic Logic Unit)</td>
-        </tr>
-        <tr>
-            <td>- Internal Bus</td>
-        </tr>
-        <tr>
-            <td>- Control Unit</td>
-        </tr>
-    </table>
+<div class="question">
+    <p>2. What is the primary function of the Central Processing Unit (CPU)?</p>
+    <input type="text" id="q2_answer" placeholder="Your Answer">
+</div>
 
-    <table>
-        <tr>
-            <th>Control Unit</th>
-        </tr>
-        <tr>
-            <td>- Sequencing Logic</td>
-        </tr>
-        <tr>
-            <td>- Control Unit Registers</td>
-        </tr>
-        <tr>
-            <td>- Control Memory</td>
-        </tr>
-    </table>
+<div class="question">
+    <p>3. Name the component responsible for fetching, decoding instructions, and managing memory addresses.</p>
+    <input type="text" id="q3_answer" placeholder="Your Answer">
+</div>
 
-    <h3>Figure 1: Computer Components</h3>
+<div class="question">
+    <p>4. What is the purpose of Cache Memory in a CPU?</p>
+    <input type="text" id="q4_answer" placeholder="Your Answer">
+</div>
 
-    <h2>Single-Core Processor Computer:</h2>
+<div class="question">
+    <p>5. What are the two levels of Cache Memory mentioned?</p>
+    <input type="text" id="q5_answer" placeholder="Your Answer">
+</div>
 
-    <p>We will present a hierarchy of simple computer components and the central processing unit.</p>
+<button onclick="gradeQuiz()">Submit Answers</button>
 
-    <p>The simple single-core processor computer consists of the following components:</p>
+<p id="result"></p>
 
-    <ol type="a">
-        <li>
-            <strong>Central Processing Unit (CPU):</strong>
-            <ul>
-                <li>Executes all processing operations in the computer and is often referred to as the processor.</li>
-            </ul>
-        </li>
-        <li>
-            <strong>Memory:</strong>
-            <ul>
-                <li>Responsible for storing information.</li>
-            </ul>
-        </li>
-        <li>
-            <strong>I/O Units:</strong>
-            <ul>
-                <li>Facilitates the transfer of information between the computer and the surrounding environment.</li>
-            </ul>
-        </li>
-        <li>
-            <strong>Internal Connection System:</strong>
-            <ul>
-                <li>Refers to the way computer components are connected to each other, for example, using the system bus that connects the central processing unit, memory, and I/O units.</li>
-            </ul>
-        </li>
-    </ol>
-
-    <h3>The Single-Core Processor Components:</h3>
-
-    <table>
-        <tr>
-            <th>CPU Core Components</th>
-        </tr>
-        <tr>
-            <td>- Instruction Processing Unit</td>
-        </tr>
-        <tr>
-            <td>- Arithmetic Unit</td>
-        </tr>
-        <tr>
-            <td>- Load/Store Logic</td>
-        </tr>
-        <tr>
-            <td>- Cache Memory</td>
-        </tr>
-    </table>
-
-    <p>The central processing unit (CPU) is the most crucial component in the computer and consists of:</p>
-
-    <ol type="a">
-        <li>
-            <strong>Arithmetic and Logic Unit (ALU):</strong>
-            <ul>
-                <li>Responsible for performing arithmetic and logical operations.</li>
-            </ul>
-        </li>
-        <li>
-            <strong>Control Unit:</strong>
-            <ul>
-                <li>Manages the execution of instructions.</li>
-            </ul>
-        </li>
-        <li>
-            <strong>Registers:</strong>
-            <ul>
-                <li>Small, fast storage locations within the CPU.</li>
-            </ul>
-        </li>
-        <li>
-            <strong>Internal Interconnection:</strong>
-            <ul>
-                <li>The internal bus connecting the CPU components.</li>
-            </ul>
-        </li>
-    </ol>
+<script>
+function gradeQuiz() {
+    var q1 = document.getElementById('q1_answer').value.trim().toLowerCase();
+    var q2 = document.getElementById('q2_answer').value.trim().toLowerCase();
+    var q3 = document.getElementById('q3_answer').value.trim().toLowerCase();
+    var q4 = document.getElementById('q4_answer').value.trim().toLowerCase();
+    var q5 = document.getElementById('q5_answer').value.trim().toLowerCase();
+    
+    var correctAnswers = 0;
+    
+    if (q1 === 'i/o, main memory, system bus, cpu' || q1 === 'input/output, main memory, system bus, central processing unit') {
+        correctAnswers++;
+    }
+    if (q2 === 'executes all processing operations in the computer' || q2 === 'performs processing operations') {
+        correctAnswers++;
+    }
+    if (q3 === 'instruction processing unit') {
+        correctAnswers++;
+    }
+    if (q4 === 'stores frequently used data for quick access') {
+        correctAnswers++;
+    }
+    if (q5 === 'level 1 (l1), level 2 (l2)' || q5 === 'l1, l2') {
+        correctAnswers++;
+    }
+    
+    var resultDisplay = document.getElementById('result');
+    resultDisplay.innerHTML = "You got " + correctAnswers + " out of 5 correct.";
+}
+</script>
 
 </body>
 </html>
-
-q
